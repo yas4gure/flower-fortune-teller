@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>花びら占い</title>
+    <title>四葉のおちんぽ占い</title>
     <style>
         body {
             display: flex;
@@ -46,23 +46,23 @@
 /* ファイル名が chinpoN.png と kuki.png に対応 */
 .p1 { 
     background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo1.png'); 
-    top: 0;   /* 左上 */
-    left: 0; 
+    top: -10;   /* 左上 */
+    left: -10; 
 }
 .p2 { 
     background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo2.png'); 
-    top: 0;   /* 右上 */
-    right: 0; 
+    top: -10;   /* 右上 */
+    right: -10; 
 }
 .p3 { 
     background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo3.png'); 
-    bottom: 0; /* 左下 */
-    left: 0; 
+    bottom: -10; /* 左下 */
+    left: -10; 
 }
 .p4 { 
     background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo4.png'); 
-    bottom: 0; /* 右下 */
-    right: 0; 
+    bottom: -10; /* 右下 */
+    right: -10; 
 }
 
 /* --- 🌟 stem (kuki) の配置修正 🌟 --- */
@@ -96,27 +96,28 @@
         <div class="petal p4"></div>
         <div class="stem"></div>
     </div>
-    <p id="result">花びらをクリックして今日の運勢を占おう 🌸</p>
+    <p id="result">おちんぽをクリックして今日の運勢を占おう！！！</p>
 
     <script>
         const fortunes = [
-            "大吉 🌟",
-            "中吉 😊",
-            "小吉 🍀",
-            "吉 💫",
-            "末吉 🌷",
-            "凶 😅",
+            "大吉",
+            "中吉",
+            "小吉",
+            "吉",
+            "末吉",
+            "凶",
         ];
 
         document.querySelectorAll(".petal").forEach(petal => {
             petal.addEventListener("click", () => {
                 const random = Math.floor(Math.random() * fortunes.length);
                 const result = document.getElementById("result");
-                result.textContent = `今日の運勢は「${fortunes[random]}」です！`;
+                result.textContent = `今日の運勢は「${fortunes[random]}」ちんぽ！`;
             });
         });
     </script>
 </body>
 </html>
+
 
 
