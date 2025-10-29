@@ -13,51 +13,58 @@
             height: 100vh;
             background: #fff8f9;
             font-family: "Noto Sans JP", sans-serif;
-            margin: 0; /* bodyのmarginをリセット */
+            margin: 0;
         }
 
         .flower {
             position: relative;
-            width: 200px;
+            width: 200px; /* 花全体を囲むコンテナのサイズ */
             height: 200px;
+            /* 花びらの回転の中心を合わせるために、flowerコンテナを基準点にする */
+            display: flex; /* これで子要素を中央に配置しやすくなる */
+            justify-content: center;
+            align-items: center;
         }
 
         /* 花びらの配置と画像 */
         .petal {
-            position: absolute;
+            position: absolute; /* flowerコンテナに対して絶対位置指定 */
             width: 90px;
             height: 90px;
             background-size: cover;
             background-position: center;
             cursor: pointer;
+            /* ★重要★ 回転の中心を設定：花びら要素の左上端から50%の位置 */
+            transform-origin: 50% 50%; 
+            /* 初期位置を中央に調整 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 要素の中心をコンテナの中心に移動 */
         }
 
-        /* --- 🌟 GitHub Pages URLに修正済み 🌟 --- */
+        /* --- 🌟 各花びらの回転角度を設定 🌟 --- */
         .p1 { 
             background-image: url('https://yas4gure.github.io/flower-fortune-teller/p1.jpg'); 
-            top: 0; 
-            left: 55px; 
+            transform: translate(-50%, -50%) rotate(45deg); /* 中央に配置してから回転 */
         }
         .p2 { 
             background-image: url('https://yas4gure.github.io/flower-fortune-teller/p2.jpg'); 
-            right: 0; 
-            top: 55px; 
+            transform: translate(-50%, -50%) rotate(135deg); /* 中央に配置してから回転 */
         }
         .p3 { 
             background-image: url('https://yas4gure.github.io/flower-fortune-teller/p3.jpg'); 
-            bottom: 0; 
-            left: 55px; 
+            transform: translate(-50%, -50%) rotate(225deg); /* 中央に配置してから回転 */
         }
         .p4 { 
             background-image: url('https://yas4gure.github.io/flower-fortune-teller/p4.jpg'); 
-            left: 0; 
-            top: 55px; 
+            transform: translate(-50%, -50%) rotate(315deg); /* 中央に配置してから回転 */
         }
 
         .stem {
             position: absolute;
-            bottom: -100px;
-            left: 95px;
+            bottom: -100px; /* flowerコンテナの下から配置 */
+            left: 50%; /* flowerコンテナの左右中央 */
+            transform: translateX(-50%); /* 茎の中心を合わせる */
             width: 10px;
             height: 100px;
             background-image: url('https://yas4gure.github.io/flower-fortune-teller/stem.jpg');
