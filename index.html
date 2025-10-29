@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花びら占い</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #fff8f9;
+            font-family: "Noto Sans JP", sans-serif;
+            margin: 0; /* bodyのmarginをリセット */
+        }
+
+        .flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* 花びらの配置と画像 */
+        .petal {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        /* --- 🌟 GitHub Pages URLに修正済み 🌟 --- */
+        .p1 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p1.jpg'); 
+            top: 0; 
+            left: 55px; 
+        }
+        .p2 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p2.jpg'); 
+            right: 0; 
+            top: 55px; 
+        }
+        .p3 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p3.jpg'); 
+            bottom: 0; 
+            left: 55px; 
+        }
+        .p4 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p4.jpg'); 
+            left: 0; 
+            top: 55px; 
+        }
+
+        .stem {
+            position: absolute;
+            bottom: -100px;
+            left: 95px;
+            width: 10px;
+            height: 100px;
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/stem.jpg');
+            background-size: cover;
+        }
+
+        /* テキスト */
+        #result {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="flower">
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="stem"></div>
+    </div>
+    <p id="result">花びらをクリックして今日の運勢を占おう 🌸</p>
+
+    <script>
+        const fortunes = [
+            "大吉 🌟",
+            "中吉 😊",
+            "小吉 🍀",
+            "吉 💫",
+            "末吉 🌷",
+            "凶 😅",
+        ];
+
+        document.querySelectorAll(".petal").forEach(petal => {
+            petal.addEventListener("click", () => {
+                const random = Math.floor(Math.random() * fortunes.length);
+                const result = document.getElementById("result");
+                result.textContent = `今日の運勢は「${fortunes[random]}」です！`;
+            });
+        });
+    </script>
+</body>
+</html>
