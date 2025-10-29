@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>四葉のおちんぽ占い</title>
+    <title>四つ葉のおちんぽ占い</title>
     <style>
         body {
             display: flex;
@@ -20,6 +20,10 @@
             position: relative;
             width: 200px; /* 花全体を囲むコンテナのサイズ */
             height: 200px;
+            /* 花びらの回転の中心を合わせるために、flowerコンテナを基準点にする */
+            display: flex; /* これで子要素を中央に配置しやすくなる */
+            justify-content: center;
+            align-items: center;
         }
 
         /* 花びらの配置と画像 */
@@ -30,54 +34,42 @@
             background-size: cover;
             background-position: center;
             cursor: pointer;
+            /* ★重要★ 回転の中心を設定：花びら要素の左上端から50%の位置 */
+            transform-origin: 50% 50%; 
+            /* 初期位置を中央に調整 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* 要素の中心をコンテナの中心に移動 */
         }
 
-       /* 花びらの配置と画像 */
-.petal {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-}
+        /* --- 🌟 各花びらの回転角度を設定 🌟 --- */
+        .p1 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p1.jpg'); 
+            transform: translate(-50%, -50%) rotate(45deg); /* 中央に配置してから回転 */
+        }
+        .p2 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p2.jpg'); 
+            transform: translate(-50%, -50%) rotate(135deg); /* 中央に配置してから回転 */
+        }
+        .p3 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p3.jpg'); 
+            transform: translate(-50%, -50%) rotate(225deg); /* 中央に配置してから回転 */
+        }
+        .p4 { 
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/p4.jpg'); 
+            transform: translate(-50%, -50%) rotate(315deg); /* 中央に配置してから回転 */
+        }
 
-/* --- 🌟 chinpo1-4.png を四隅に配置 🌟 --- */
-/* ファイル名が chinpoN.png と kuki.png に対応 */
-.p1 { 
-    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo1.png'); 
-    top: 0;   /* 左上 */
-    left: 0; 
-}
-.p2 { 
-    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo2.png'); 
-    top: 0;   /* 右上 */
-    right: 0; 
-}
-.p3 { 
-    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo3.png'); 
-    bottom: 0; /* 左下 */
-    left: 0; 
-}
-.p4 { 
-    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo4.png'); 
-    bottom: 0; /* 右下 */
-    right: 0; 
-}
-
-/* --- 🌟 stem (kuki) の配置修正 🌟 --- */
-.stem {
-    position: absolute;
-    /* bottom: -100px; を bottom: -50px; に変更します */
-    /* これで、花びらの下端付近から下に伸びるようになります */
-    bottom: -50px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 10px;
-    height: 100px;
-    background-image: url('https://yas4gure.github.io/flower-fortune-teller/kuki.png');
-    background-size: cover;
-}
+        .stem {
+            position: absolute;
+            bottom: -100px; /* flowerコンテナの下から配置 */
+            left: 50%; /* flowerコンテナの左右中央 */
+            transform: translateX(-50%); /* 茎の中心を合わせる */
+            width: 10px;
+            height: 100px;
+            background-image: url('https://yas4gure.github.io/flower-fortune-teller/stem.jpg');
+            background-size: cover;
+        }
 
         /* テキスト */
         #result {
@@ -96,7 +88,7 @@
         <div class="petal p4"></div>
         <div class="stem"></div>
     </div>
-    <p id="result">おちんぽをクリックして今日の運勢を占おう！！！</p>
+    <p id="result">おちんぽをクリックして今日の運勢を占おう！！</p>
 
     <script>
         const fortunes = [
@@ -112,14 +104,9 @@
             petal.addEventListener("click", () => {
                 const random = Math.floor(Math.random() * fortunes.length);
                 const result = document.getElementById("result");
-                result.textContent = `今日の運勢は「${fortunes[random]}」ちんぽ！`;
+                result.textContent = `今日の運勢は「${fortunes[random]}」おちんぽです！`;
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
