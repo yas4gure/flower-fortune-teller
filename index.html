@@ -32,39 +32,49 @@
             cursor: pointer;
         }
 
-        /* --- 🌟 ファイル名を "chinpo" "kuki" に変更 🌟 --- */
-        /* 拡張子は .png を前提としています */
-        .p1 { 
-            background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo1.png'); 
-            top: 0; /* 左上 */
-            left: 0; 
-        }
-        .p2 { 
-            background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo2.png'); 
-            top: 0; /* 右上 */
-            right: 0; 
-        }
-        .p3 { 
-            background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo3.png'); 
-            bottom: 0; /* 左下 */
-            left: 0; 
-        }
-        .p4 { 
-            background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo4.png'); 
-            bottom: 0; /* 右下 */
-            right: 0; 
-        }
+       /* 花びらの配置と画像 */
+.petal {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
 
-        .stem {
-            position: absolute;
-            bottom: -100px; /* flowerコンテナの下から配置 */
-            left: 50%; /* flowerコンテナの左右中央 */
-            transform: translateX(-50%); /* 茎の中心を合わせる */
-            width: 10px;
-            height: 100px;
-            background-image: url('https://yas4gure.github.io/flower-fortune-teller/kuki.png');
-            background-size: cover;
-        }
+/* --- 🌟 chinpo1-4.png を四隅に配置 🌟 --- */
+/* ファイル名が chinpoN.png と kuki.png に対応 */
+.p1 { 
+    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo1.png'); 
+    top: 0;   /* 左上 */
+    left: 0; 
+}
+.p2 { 
+    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo2.png'); 
+    top: 0;   /* 右上 */
+    right: 0; 
+}
+.p3 { 
+    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo3.png'); 
+    bottom: 0; /* 左下 */
+    left: 0; 
+}
+.p4 { 
+    background-image: url('https://yas4gure.github.io/flower-fortune-teller/chinpo4.png'); 
+    bottom: 0; /* 右下 */
+    right: 0; 
+}
+
+.stem {
+    position: absolute;
+    bottom: -100px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 10px;
+    height: 100px;
+    background-image: url('https://yas4gure.github.io/flower-fortune-teller/kuki.png');
+    background-size: cover;
+}
 
         /* テキスト */
         #result {
@@ -105,3 +115,4 @@
     </script>
 </body>
 </html>
+
